@@ -1,0 +1,236 @@
+
+
+https://www.youtube.com/watch?v=105v15qL_SU
+https://www.youtube.com/watch?v=_ddQr2o-t3s
+
+Active Directory Integration Resources
+
+DMZ LDAP Proxy Setup (JNUC 2020):   https://youtu.be/ZZHzJHejiFc
+
+https://www.jamf.com/resources/videos/integrate-azure-active-directory-with-jamf-pro/
+
+https://hcsonline.com/support/white-papers
+
+https://support.apple.com/guide/deployment-reference-macos/integrating-macos-with-active-directory-iorbeda89d1d/1/web/1.0
+
+Federation zure AD with ABM https://www.youtube.com/watch?v=3HdLFjFcjqM
+
+
+
+
+
+
+
+
+
+
+Best Practices: https://www.youtube.com/watch?v=L6sabMTyQV8
+
+Special/Encoded Characters: 
+
+	&#13; stands for line-break: \r
+    &lt; stands for the less-than sign: <
+    &gt; stands for the greater-than sign: >
+    &le; stands for the less-than or equals sign: ≤
+    &ge; stands for the greater-than or equals sign: ≥
+
+
+
+
+
+Extension Attribute: Check Bash/OS/etc Version
+__________________________________________________________
+
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionAttribute>
+	<displayName>BASH Version</displayName>
+	<description>Find the version of BASH installed.  </description>
+	<dataType>string</dataType>
+
+		<scriptContentsMac>
+
+
+		#!/bin/sh&#13;
+
+		&#13;
+		
+		BASH_Version=$(/bin/bash --version | awk -F'[ |(]' '/version/{print $4}')
+		
+		&#13;
+		&#13;
+		
+		echo "&lt;result&gt;$BASH_Version&lt;/result&gt;"
+		
+		&#13;
+		&#13;
+		
+		exit 0
+
+		</scriptContentsMac>
+
+	<scriptContentsWindows/>
+</extensionAttribute>
+
+
+
+Extension Attribute - Find Dangerous Files
+______________________________________________
+
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionAttribute>
+	<displayName>BASH Version</displayName>
+	<description>Find the version of BASH installed.  </description>
+	<dataType>string</dataType>
+
+	<scriptContentsMac>#!/bin/sh&#13;
+
+	&#13;
+	
+	MalwarePresent=$(ls /Applications | grep Malware* | wc -l);
+	
+	&#13;
+	
+	echo "&lt;result&gt;$MalwarePresent&lt;/result&gt;"&#13;
+	
+	&#13;
+	
+	exit 0
+
+	</scriptContentsMac>
+	<scriptContentsWindows/>
+</extensionAttribute>
+
+
+Possible Malware to test For: 
+
+Variable Location= ls /Applications | grep Malware* | wc -l
+
+
+Most Common Malware (Malwarebytes)= 
+
+	OSX.Generic.Suspicious 80.65%		
+	OSX.FakeFileOpener 13.19%		
+	OSX.ThiefQuest 1.96%		
+	OSX.BirdMiner 1.37%		
+	OSX.SearchAwesome 1.05%		
+	OSX.FakeAV 0.74%		
+	OSX.Honkbox 0.22%		
+	OSX.Dummy 0.15%		
+	OSX.Adwind 0.1%		
+	OSX.KeRanger 0.1%		
+
+
+
+
+
+Extension Attribute: Return DNS/IP Address of Apple Software Update Server (Or any server/FileDistributionPoint)
+_________________________________________________________
+
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionAttribute>
+
+	<displayName>Apple Software Update Server</displayName>
+	<displayInCategory>Software Updates</displayInCategory>
+	<dataType>string</dataType>
+	<description>
+	This attribute returns the DNS/IP address of the Apple Software Update Server that is set on the client machine.
+	</description>
+
+		<scriptContentsMac>
+
+		#!/bin/sh
+
+		SWU=`defaults read /private/var/root/Library/Preferences/com.apple.SoftwareUpdate CatalogURL`
+		echo "&lt;result&gt;$SWU&lt;/result&gt;"
+
+		</scriptContentsMac>
+	<scriptContentsWin>
+	</scriptContentsWin>
+
+</extensionAttribute>
+
+
+
+
+
+
+Policy: Disable Bluetooth (OR any other service) Setup Assistant
+______________________________________________
+
+# MOVE THE FOLDER TO DISABLED APPLICATIONS
+#
+####################################################################################################
+
+echo "Disabling the Bluetooth Setup Assistant..."
+
+if [ -d "/Library/Application Support/JAMF/DisabledApplications/" ]; then
+	/bin/mv '/System/Library/CoreServices/Bluetooth Setup Assistant.app' '/Library/Application Support/JAMF/DisabledApplications/'
+else
+	/bin/mkdir -p '/Library/Application Support/JAMF/DisabledApplications/'
+	/bin/mv '/System/Library/CoreServices/Bluetooth Setup Assistant.app' '/Library/Application Support/JAMF/DisabledApplications/'
+fi
+
+
+* Critical to setup Blacklisted Location for users = /Library/Application Support/JAMF/
+
+
+
+
+
+Policy: Automatic Application Update(Skype Example)
+_______________________________________________________________
+
+#!/bin/bash
+
+## List variables
+
+	INSTALLEDVERSION=$( defaults read "/Applications/skype.app/Contents/Info.plist" CFBundleShortVersionString )
+	CURRENTVERSION=$( curl -s https://www.snapfiles.com/apphistory/skype_history.html | grep '</span>' | awk -F'</span>' '{print $2}' | awk -F ' ' 'NR==1{print substr($1,1,4)}' )
+
+	if [ ! -f "/Applications/skype.app/Contents/Info.plist" ] ; then
+	echo "<result>Skype isn't installed</result>"
+	exit 0
+	fi
+
+	if [[ "$INSTALLEDVERSION" == "$CURRENTVERSION" ]]; then
+
+	echo "<result>latest - $CURRENTVERSION</result>"
+
+	else
+
+###Update
+
+	echo "Skype is out of date. updating"
+	mkdir /tmp/downloads
+	cd /tmp/downloads
+
+# Installing Latest Skype for Mac
+#CurrentVLC=$(curl "https://go.skype.com/skype.download" | grep .dmg | grep -v webplugin | grep -v md5 | grep -v sha1 | grep -v sha256 | grep -v asc | awk '{print $2}' | awk -F ">" '{print $2}' | tr -d "</a")
+
+	echo downloading.....
+
+	curl -L -o skype.dmg https://go.skype.com/mac.download/
+
+	hdiutil mount -nobrowse skype.dmg -mountpoint /Volumes/skype
+	echo installing 
+	rsync -vaz /Volumes/skype/Skype.app/ /Applications/Skype.app
+	sleep 5
+	hdiutil unmount "/Volumes/skype"
+	rm skype.dmg
+	rm -rf /tmp/downloads
+
+	echo done!
+	fi
+	exit 0
+
+
+
+
+#Critical to incluse Apple Silicon as of 2021
+
+
+
+
+
+
+
