@@ -1,0 +1,359 @@
+
+body {  padding-top: 56px;}.myfont{	font-family: Garamond,Baskerville,Baskerville Old Face,Hoefler Text,Times New Roman,serif; }.myshadowfilter {     width: 150px;  -webkit-filter: drop-shadow(5px 5px 5px #222);  filter: drop-shadow(5px 5px 5px #222);  background-color: white;}        /* Modify the background color */                   .navbar-custom {             background-color: black;         }         /* Modify brand and text color */        /*           .navbar-custom .navbar-brand,         .navbar-custom .navbar-text {             color: green;         } */        /*NAVBAR ANIMATION*/              @media (min-width: 992px) {                .animate {                  animation-duration: 0.3s;                  -webkit-animation-duration: 0.3s;                  animation-fill-mode: both;                  -webkit-animation-fill-mode: both;                }              }              @keyframes slideIn {                0% {                  transform: translateY(1rem);                  opacity: 0;                }                100% {                  transform:translateY(0rem);                  opacity: 1;                }                0% {                  transform: translateY(1rem);                  opacity: 0;                }              }              @-webkit-keyframes slideIn {                0% {                  -webkit-transform: transform;                  -webkit-opacity: 0;                }                100% {                  -webkit-transform: translateY(0);                  -webkit-opacity: 1;                }                0% {                  -webkit-transform: translateY(1rem);                  -webkit-opacity: 0;                }              }              .slideIn {                      -webkit-animation-name: slideIn;                      animation-name: slideIn;                    }                           .bg-cover {                    background-position: center;                    background-repeat: no-repeat;                    background-size: cover;                }
+.footr{
+	background-color: #343434;
+}
+
+.storejumbotron1 {
+ 
+ 
+  padding: 2rem 1rem;
+ 
+  margin-bottom: 2rem;
+ 
+  border-radius: 0rem;
+ 
+ 
+ 
+background: #000064;  /* old browsers fallback color*/
+ 
+background: -webkit-linear-gradient(to right, #00003E, #1BADD8); 
+ 
+background: linear-gradient(to right, #00003E, #1BADD8);
+ 
+ 
+ 
+}
+
+          
+        .navbar-custom { 
+            background-color: black; 
+        } 
+        /* Modify brand and text color */ 
+       /*   
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .navbar-text { 
+            color: green; 
+        } */
+        /*NAVBAR ANIMATION*/
+              @media (min-width: 992px) {
+                .animate {
+                  animation-duration: 0.3s;
+                  -webkit-animation-duration: 0.3s;
+                  animation-fill-mode: both;
+                  -webkit-animation-fill-mode: both;
+                }
+              }
+
+              @keyframes slideIn {
+                0% {
+                  transform: translateY(1rem);
+                  opacity: 0;
+                }
+                100% {
+                  transform:translateY(0rem);
+                  opacity: 1;
+                }
+                0% {
+                  transform: translateY(1rem);
+                  opacity: 0;
+                }
+              }
+
+              @-webkit-keyframes slideIn {
+                0% {
+                  -webkit-transform: transform;
+                  -webkit-opacity: 0;
+                }
+                100% {
+                  -webkit-transform: translateY(0);
+                  -webkit-opacity: 1;
+                }
+                0% {
+                  -webkit-transform: translateY(1rem);
+                  -webkit-opacity: 0;
+                }
+              }
+
+              .slideIn {
+                      -webkit-animation-name: slideIn;
+                      animation-name: slideIn;
+                    }
+             
+              .bg-cover {
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.checkouttable{
+	background-color: white !important;
+	
+}
+
+.checkoutdivider{
+	border-top: 2px solid white;
+}
+.cartdatatext{
+	font-size: 10px;
+}
+
+
+myrightdivider {
+  border-right: 1px dashed #333;
+}
+
+
+td 
+{
+    
+	height: 50px; 
+    width: 50px;
+}
+
+
+
+
+.cartInput {
+	width: 50px;
+	
+}
+.myfilterbox {
+	
+  border-right: 1px solid grey;
+
+}
+
+.cartbuttonclass{
+	/* padding: 40px 20px; */
+	/* box-sizing: content-box; */
+	
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	border-radius: 2px;
+	
+
+	
+	
+}
+
+/* .mymodalclass{ */
+	/* width: 600px; */
+	
+/* } */
+
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and () {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+#team {
+    background: #eee !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #00003E;
+    border-color: #1BADD8;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #00003E;
+    border-color: #1BADD8;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #00003E;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#team .card {
+    border: none;
+    background: #ffffff;
+}
+
+.image-flip:hover .backside,
+.image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+}
+
+.image-flip:hover .frontside,
+.image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+	
+}
+
+.backside {
+    /* border: 2px solid grey; */
+	position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+
+.frontside,
+.backside {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.frontside .card,
+.backside .card {
+    min-height: 360px;
+}
+
+.backside .card a {
+    font-size: 18px;
+    color: #00003E !important;
+}
+
+.frontside .card .card-title,
+.backside .card .card-title {
+    color: #00003E !important;
+}
+
+.frontside .card .card-body img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.storejumbotron {
+ 
+
+ 
+  padding: 2rem 1rem;
+ 
+  margin-bottom: 2rem;
+ 
+  border-radius: 0rem;
+ 
+ 
+ 
+background: #000064;  /* old browsers fallback color*/
+ 
+background: -webkit-linear-gradient(to right, #00003E, #000000); 
+  
+background: linear-gradient(to right, #00003E, #000000);
+ 
+ 
+ 
+}
+ 
+.hd1{
+ 
+    color:#fff;
+ 
+}
+
+
+body {
+    padding-top: 70px;
+  }
+  
+.quantityinput{
+	outline: 2px orange solid; 
+	
+}
