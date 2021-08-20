@@ -1,3 +1,9 @@
+##############################################################################
+# 		Setup Mac Background Image and other..
+##############################################################################
+
+
+
 #!/usr/bin/bash 
 
 echo "What background would you like? (C=Classic) (H=HighTech)"
