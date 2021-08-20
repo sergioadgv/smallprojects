@@ -1,34 +1,14 @@
 
 
-https://www.youtube.com/watch?v=105v15qL_SU
-https://www.youtube.com/watch?v=_ddQr2o-t3s
-
-Active Directory Integration Resources
-
-DMZ LDAP Proxy Setup (JNUC 2020):   https://youtu.be/ZZHzJHejiFc
-
-https://www.jamf.com/resources/videos/integrate-azure-active-directory-with-jamf-pro/
-
-https://hcsonline.com/support/white-papers
-
-https://support.apple.com/guide/deployment-reference-macos/integrating-macos-with-active-directory-iorbeda89d1d/1/web/1.0
-
-Federation zure AD with ABM https://www.youtube.com/watch?v=3HdLFjFcjqM
+#############################################################################
+			MAC Management Scripts (C/Bash/Jamf)
+#############################################################################
 
 
-
-
-
-
-
-
-
-
-Best Practices: https://www.youtube.com/watch?v=L6sabMTyQV8
 
 Special/Encoded Characters: 
 
-	&#13; stands for line-break: \r
+    &#13; stands for line-break: \r
     &lt; stands for the less-than sign: <
     &gt; stands for the greater-than sign: >
     &le; stands for the less-than or equals sign: ≤
@@ -36,6 +16,23 @@ Special/Encoded Characters:
 
 
 
+Most Common Malware (Malwarebytes)= 
+
+	OSX.Generic.Suspicious 80.65%		
+	OSX.FakeFileOpener 13.19%		
+	OSX.ThiefQuest 1.96%		
+	OSX.BirdMiner 1.37%		
+	OSX.SearchAwesome 1.05%		
+	OSX.FakeAV 0.74%		
+	OSX.Honkbox 0.22%		
+	OSX.Dummy 0.15%		
+	OSX.Adwind 0.1%		
+	OSX.KeRanger 0.1%	
+
+
+#############################################################################
+				  SCRIPTS
+#############################################################################
 
 
 Extension Attribute: Check Bash/OS/etc Version
