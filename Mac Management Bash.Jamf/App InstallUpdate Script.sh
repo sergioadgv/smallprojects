@@ -1,3 +1,9 @@
+#############################################################################
+# 			 App Installation Script
+#############################################################################
+
+
+
 #!/usr/bin/bash 
 
 
@@ -7,7 +13,7 @@ echo "User is: $USER"
 
 sleep 1
 
-if [ $USER == "sergiodigiacinto" ] 
+if [ $USER == "guestusername" ] 
 
 then
 	echo "Current User is a Guest"
@@ -115,29 +121,23 @@ sleep 1
 
 
 
+		# OTHER: Check if Apps are Up to Date
+
+
+		#echo "What Apps does this system have?"
+
+		#sleep 1
+
+		#defaults domains | tr ',' '\n'
 
 
 
 
+		#Checks the list of apps to update
+		# softwareupdate --list  
+		# softwareupdate --install {appname}
 
-
-# Check if Apps are Up to Date
-
-
-#echo "What Apps does this system have?"
-
-#sleep 1
-
-#defaults domains | tr ',' '\n'
-
-
-
-
-#Checks the list of apps to update
-# softwareupdate --list  
-# softwareupdate --install {appname}
-
-# org.mozilla.firefox
+		# org.mozilla.firefox
 
 
 
