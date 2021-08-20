@@ -1,3 +1,8 @@
+##############################################################################
+# 			Change between Light & Dark Mode
+##############################################################################
+
+
 #!/usr/bin/bash 
 
 y=$(eval "defaults read NSGlobalDomain AppleInterfaceStyle")
